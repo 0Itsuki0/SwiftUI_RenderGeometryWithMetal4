@@ -6,16 +6,32 @@
 //
 
 import SwiftUI
+import MetalKit
+import Metal
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            ScrollView {
+                VStack(spacing: 24) {
+                    Text("Basic")
+                        .font(.headline)
+                    
+                    BasicMetalView()
+                    
+                    Divider()
+                    
+                    Text("With Animation + Control")
+                        .font(.headline)
+                    
+                    AnimateMetalView()
+                }
+                .padding()
+                .scrollTargetLayout()
+            }
+            .navigationTitle("View With Metal 4")
+
         }
-        .padding()
     }
 }
 
